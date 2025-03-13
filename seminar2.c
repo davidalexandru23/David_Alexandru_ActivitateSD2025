@@ -56,13 +56,14 @@ void dezalocare(struct Masina** vector, int* nrElemente) {
 		if ((*vector)[i].model != NULL)
 		{
 			free((*vector)[i].model);
+			(*vector)[i].model = NULL;
 			
 		}
 		
 	}
-	free(*vector);
-	*vector = NULL;
-	*nrElemente = 0;
+	
+	
+	*nrElemente = NULL;
 }
 
 void copiazaMasiniIeftine(struct Masina* vector, char nrElemente, float prag, struct Masina** vectorNou, int* dimensiune) {
@@ -85,7 +86,8 @@ void copiazaMasiniIeftine(struct Masina* vector, char nrElemente, float prag, st
 		k++;
 	}
 }
-	
+
+
 
 
 int main() {
@@ -107,6 +109,6 @@ int main() {
 	copiazaMasiniIeftine(vec, n, 5000, &vectorNou, &nrElementeCopiate);
 	printf("\n\nMasini ieftine:\n");
 	afisareVector(vectorNou, nrElementeCopiate);
-	
+	dezalocare(&vectorNou, &nrElementeCopiate);
 		return 0;
 }
