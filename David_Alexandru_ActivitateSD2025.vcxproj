@@ -194,7 +194,9 @@
     <ClCompile Include="seminar4.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="seminar5.cpp" />
+    <ClCompile Include="seminar5.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="masini.txt" />
