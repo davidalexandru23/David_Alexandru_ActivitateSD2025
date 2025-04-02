@@ -30,6 +30,9 @@
     <ClCompile Include="seminar5.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seminar6.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="masini.txt" />
