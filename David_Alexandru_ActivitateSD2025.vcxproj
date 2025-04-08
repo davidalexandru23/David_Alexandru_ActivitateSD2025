@@ -203,6 +203,7 @@
     <ClCompile Include="suplimentare.c" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="drone.txt" />
     <Text Include="masini.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
