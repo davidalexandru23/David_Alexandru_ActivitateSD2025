@@ -192,7 +192,7 @@ int determinaNumarNoduri(Nod* rad) {
 	{
 		return 1 + determinaNumarNoduri(rad->st) + determinaNumarNoduri(rad->dr);
 	}
-	return 0;
+	
 }
 
 int calculeazaInaltimeArbore(/*arbore de masini*/) {
