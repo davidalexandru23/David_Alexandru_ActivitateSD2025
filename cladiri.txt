@@ -1,0 +1,10 @@
+﻿1,Palatul Parlamentului,1984
+2,Ateneu Roman,1888
+3,Hotel Intercontinental,1971
+4,Bloc Mihai Bravu 123,1980
+5,Turnul de Nord,2007
+6,Bloc Unirii 45,1990
+7,Teatrul Național,1973
+8,Biblioteca Națională,2011
+9,Mega Mall,2015
+10,Muzeul Satului,1936

@@ -169,6 +169,64 @@ Drona* citireDronaInVectorFisier(const char* fisier, int *nrDrone) {
 	return drone;
 }
 
+Drona** grupareDronePeCapacitate(Drona* drone, int nrDrone, int* nrLinii, int** nrElemPeLinie) {
+	*nrLinii = 3; // 
+	Drona** matrice = (Drona**)malloc((*nrLinii) * sizeof(Drona*));
+	*nrElemPeLinie = (int*)calloc(*nrLinii, sizeof(int)); 
+
+	
+	for (int i = 0; i < nrDrone; i++) {
+		float c = drone[i].capacitate;
+		int index = (c < 2) ? 0 : (c <= 3 ? 1 : 2);
+		(*nrElemPeLinie)[index]++;
+	}
+
+	
+	for (int i = 0; i < *nrLinii; i++) {
+		matrice[i] = (Drona*)malloc((*nrElemPeLinie)[i] * sizeof(Drona));
+		(*nrElemPeLinie)[i] = 0; 
+	}
+
+	
+	for (int i = 0; i < nrDrone; i++) {
+		float c = drone[i].capacitate;
+		int index = (c < 2) ? 0 : (c <= 3 ? 1 : 2);
+		matrice[index][(*nrElemPeLinie)[index]++] = initializareDrona(
+			drone[i].id, drone[i].denumire, drone[i].capacitate, drone[i].autonomie, drone[i].pret
+		);
+	}
+
+	return matrice;
+}
+
+void afisareMatriceDrone(Drona** matrice, int nrLinii, int* nrElemPeLinie) {
+	for (int i = 0; i < nrLinii; i++) {
+		printf("Cluster %d (%d drone):\n", i + 1, nrElemPeLinie[i]);
+		for (int j = 0; j < nrElemPeLinie[i]; j++) {
+			afisareDrona(matrice[i][j]);
+			printf("\n");
+		}
+		printf("\n");
+	}
+}
+
+void sortareLiniiDupaNumarDrone(Drona*** matrice, int* nrLinii, int** nrElemPeLinie) {
+	for (int i = 0; i < *nrLinii - 1; i++) {
+		for (int j = i + 1; j < *nrLinii; j++) {
+			if ((*nrElemPeLinie)[i] > (*nrElemPeLinie)[j]) {
+				
+				int aux = (*nrElemPeLinie)[i];
+				(*nrElemPeLinie)[i] = (*nrElemPeLinie)[j];
+				(*nrElemPeLinie)[j] = aux;
+
+				
+				Drona* temp = (*matrice)[i];
+				(*matrice)[i] = (*matrice)[j];
+				(*matrice)[j] = temp;
+			}
+		}
+	}
+}
 
 
 void dezalocareDrona(Drona* d) {
@@ -191,7 +249,17 @@ int main()
 	
 	drone = citireDronaInVectorFisier("drone.txt", &n);
 	afisareVectorDrone(drone, n);
+	int nrLinii;
+	int* nrElemPeLinie;
+	Drona** matrice = grupareDronePeCapacitate(drone, n, &nrLinii, &nrElemPeLinie);
 
+	printf("\nMatrice originala:\n");
+	afisareMatriceDrone(matrice, nrLinii, nrElemPeLinie);
+
+	sortareLiniiDupaNumarDrone(&matrice, &nrLinii, &nrElemPeLinie);
+
+	printf("\nMatrice dupa sortare:\n");
+	afisareMatriceDrone(matrice, nrLinii, nrElemPeLinie);
 	
 	/*d = citireDronaTastatura(d);
 	afisareDrona(d);
