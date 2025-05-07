@@ -215,5 +215,6 @@ int main() {
 
 	Nod* rad=citireArboreDeMasiniDinFisier("masini_arbore.txt");
 	afisarePreordine(rad); 
+	printf("%d", determinaNumarNoduri(rad));
 	return 0;
 }

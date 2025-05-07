@@ -45,12 +45,17 @@
     <ClCompile Include="seminar8.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seminar9.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="masini.txt" />
     <Text Include="drone.txt" />
     <Text Include="cladiri.txt" />
     <Text Include="masini_arbore.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="masini.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
