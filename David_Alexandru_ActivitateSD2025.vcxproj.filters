@@ -51,6 +51,9 @@
     <ClCompile Include="seminar10.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seminar11.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="drone.txt" />
@@ -59,6 +62,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="masini.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="muchii.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
